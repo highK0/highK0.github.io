@@ -13,29 +13,117 @@ body {
     height: 100vh;
 }
 
+.background-container {
+    background: linear-gradient(to bottom, #4a6f85, #1c3c55); /* Farbverlauf von hell nach dunkel */
+    padding: 20px; /* Innenabstand um den Container */
+    border-radius: 30px; /* Stärker abgerundete Ecken */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Schatten um den Container */
+     max-width: 800px; /* Maximalbreite, um den Hintergrund schmaler zu machen */
+}
+
 .container {
+    display: flex;
+    flex-direction: column; /* Titelbereich über dem grünen Bereich */
+    align-items: center; /* Zentrierte Ausrichtung */
+    height: 100%;
+    width: 100%;
+}
+
+.decorative-elements {
+    display: flex;
+    align-items: center; /* Zentriert den Inhalt innerhalb der dekorativen Elemente */
+    width: 80%; /* Die Breite des gesamten Inhaltsbereichs */
+    position: relative; /* Position für absolute Kinder */
+}
+
+.decor-left,
+.decor-right {
+    background: linear-gradient(to bottom, orange, #ffffe0); /* Farbverlauf von orange nach sehr hellem gelb */
+    width: 70px; /* Breite der Schmuckelemente */
+    height: 500px; /* Höhe der Schmuckelemente */
+    border: 4px solid #3d6570; /* Rahmen ähnlich dem grünen Bereich */
+    border-radius: 10px; /* Abgerundete Ecken */
+    margin-right: 10px; /* Abstand zwischen den dekorativen Elementen und dem grünen Bereich */
+}
+
+.decor-right {
+    margin-left: 10px; /* Abstand zwischen den dekorativen Elementen und dem grünen Bereich */
+}
+
+.title-bar {
+    background: linear-gradient(to bottom, #1c4966, #356989);
+    height: 120px; /* Vergrößerter Titelbereich */
+    width: 80%; /* Breite anpassen */
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    margin-bottom: 10px; /* Abstand zum grünen Bereich */
+    border: 3px solid #1b2f44;
+    box-shadow: inset 0 0 5px #000;
+}
+
+.title {
+    font-size: 32px; /* Größerer Schriftgrad für den Titel */
+    color: #e2f3e6;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 2px 2px 0 #273c20, 4px 4px 0 #1a1f12;
 }
 
 .screen {
     background-color: #3dbd4a;
-    width: 400px;
+    width: 85%; /* Grüne Bereich nimmt 85% der Breite */
     height: 500px;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border: 4px solid #3d6570;
     position: relative;
+    overflow: hidden;
 }
 
-.title {
-    text-align: center;
-    font-size: 36px;
+.content {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 10px); /* Höhe des Inhalts anpassen, sodass es den Restbereich der Screen-Höhe füllt */
+    padding: 0 5px; /* Padding für den Inhalt */
+}
+
+.text-column {
+    background-color: #349a3b;
     color: white;
-    margin-bottom: 40px;
+    width: 20%; /* Jede Textspalte nimmt jetzt 15% der gesamten Bildschirmbreite ein */
+    padding: 4px;
+    font-size: 6px; /* Kleinere Schriftgröße für den Text */
+    border-radius: 10px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden; /* Überlauf verstecken, damit Text nicht sichtbar ist */
+}
+
+.left-column {
+    align-self: stretch; /* Linke Spalte füllt den linken Rand bis nach unten */
+    margin-right: 15px; /* Abstand zur rechten Seite (Button-Wrapper) */
+}
+
+.right-column {
+    align-self: stretch; /* Rechte Spalte füllt den rechten Rand bis nach unten */
+    margin-left: 15px; /* Abstand zur linken Seite (Button-Wrapper) */
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #76c785;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid #4a7a5b;
+    width: 75%; /* Restliche verfügbare Breite zwischen den Textspalten */
 }
 
 .buttons {
@@ -46,25 +134,27 @@ body {
 }
 
 .btn {
-    width: 200px;
+    width: 140px;
     padding: 10px;
     background-color: #daf2d6;
     border: 2px solid #4e4f64;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btnred {
+    width: 120px;
+    padding: 10px;
+    background-color: red;
+    border: 2px solid #4e4f64;
+    border-radius: 15px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 .btn:hover {
     background-color: #c0e8c0;
-}
-
-.sound-btn {
-    background-color: #daf2d6;
-    height: 40px;
-    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 24 24%22 fill%3D%22%23000%22%3E%3Cpath d%3D%22M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 01-4.5 4.5V7a4.5 4.5 0 014.5 4.5zm0 0a7.5 7.5 0 010 0a7.5 7.5 0 00-7.5 7.5v-15a7.5 7.5 0 017.5 7.5z%22/%3E%3C/svg%3E');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }

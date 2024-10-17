@@ -1,19 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paused Menu</title>
+    <title>Webseite</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="screen">
-            <h1 class="title">The secret lab of highKO the Major of O.W.C.A.</h1>
-            <div class="buttons">
-                <button class="btn">RESUME</button>
-                <button class="btn sound-btn"></button>
-                <button class="btn">LEVELS</button>
+    <div class="background-container"> 
+        <div class="container">
+            <div class="title-bar">
+                <div class="title">L.A.B. of agent Ä <br /> dev oops of O.W.C.A.</div>
+            </div>
+            <div class="decorative-elements">
+                <div class="decor-left"></div>
+                <div class="screen">
+                    <div class="content">
+                        <div class="text-column left-column">
+                            <p> MAIN:
+                                BALAPI   CSECT STM    14,12,12(13)                                         LR     12,15                                @PSTART  EQU    BALAPI                                         USING  @PSTART,12                                         ST     13,SAVE+4                                         LA     14,SAVE                                         ST     14,8(13)                                         LR     13,14                                *                                * END OF STANDARD LINKAGE                                *                                BALAPI   AMODE 31                                *                                * SET UP PARAMETERS FOR QUERY                                *                                         XC    QUERY_PARMS,QUERY_PARMS                                         LA    3,MYCSI                                         ST    3,PCSI                                         LA    3,19                                         ST    3,CSILEN                                         LA    3,MYZONE                                         ST    3,PZONE                                         LA    3,3                                         ST    3,ZONELEN                                         LA    3,MYENTRY                                         ST    3,PENTRY                                         LA    3,6                                         ST    3,ENTRYLEN                                         LA    3,MYSUBNTY                                         ST    3,PSUBENTRY                                         LA    3,1                                         ST    3,SUBENTRYLEN                                         LA    3,MYFILTER                                         ST    3,PFILTER                                         LA    3,16                                         ST    3,FILTERLEN                                *                                * NOW LOAD THE API                                *                                         LA    2,APIPGM                                         LOAD EPLOC=(2),LOADPT=PGMADR                                *                                * NOW DO THE QUERY
+                            
+                                MVI   URRQID,C'1'           MOVE 1 TO REQUEST ID
+                                MVI   URLVL,C'4'            MOVE 4 TO REQUEST LEVEL
+                                MVC   URCMND,SYSINITI       DSF COMMAND IS SYSINITIMMAND
+                                CALL  DDCALL,(URRQAREA)     CALL DSF USING USER REQUEST AREA
+                                CLC   URRETURN,SPACES       Q-GOOD RETURN CODE ?
+                                BE    INITUSR               Y-GO ISSUE USER INIT
+                                BAL   R14,WRITEIT           N-WRITE OUT ERROR MSG
+                                B     STARTEX               THEN EXIT
+</p>
+                      </div>
+                        <div class="button-wrapper">
+                            <div class="buttons">
+                                <button class="btn">very secret project VI</button>
+                                <button class="btn">area 51.2</button>
+                                <button class="btn">cube clock</button>
+                                <button class="btn">cube calendar</button>
+                                <button class="btn">coords agent Ä</button>
+                                <button class="btnred">dont touch!</button>
+                            </div>
+                        </div>
+                        <div class="text-column right-column">
+                            <p>DSFALCPR CSECT
+                                USING DSFALCPR,R11
+                                STM   14,12,12(13)        SAVE CALLING PROGRAM'S REGISTERS
+                                LR    R11,R15
+                                LA    R14,SAVAREA         POINT R14 TO REG SAVEAREA
+                                ST    R13,4(,R14)         SAVE CALLING PROGRAM'S R13
+                                ST    R14,8(,R13)
+                                LR    R13,R14
+                                SPACE
+                                BAL   R14,STARTUP         OPEN FILES, DO DSF INITIALIZATION
+                                BAL   R14,MAINLINE        MAIN PROGRAM LOGIC
+                                BAL   R14,SHUTDOWN        CLOSE FILES, TERMINATE DSF
+                                SPACE
+                       PGMEXIT  DS    0H
+                                L     13,4(,13)
+                                LM    14,12,12(13)
+                                LA    15,0                ZERO R15
+                                BR    14                  RETURN TO CALLER
+                                SPACE 1
+                       STARTUP  EQU   *
+                                SPACE
+                                ST    R14,SAVESU
+                                OPEN  (CARD,INPUT,PRINT,OUTPUT)
+                                SPACE
+                                MVI   URRQID,C'1'           MOVE 1 TO REQUEST ID
+                                MVI   URLVL,C'4'            MOVE 4 TO REQUEST LEVEL
+                                MVC   URCMND,SYSINITI       DSF COMMAND IS SYSINITIMMAND
+                                CALL  DDCALL,(URRQAREA)     CALL DSF USING USER REQUEST AREA
+                                CLC   URRETURN,SPACES       Q-GOOD RETURN CODE ?
+                                BE    INITUSR               Y-GO ISSUE USER INIT
+                                BAL   R14,WRITEIT           N-WRITE OUT ERROR MSG
+                                B     STARTEX               THEN EXIT
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="decor-right"></div>
             </div>
         </div>
     </div>
